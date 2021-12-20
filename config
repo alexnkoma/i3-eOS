@@ -238,6 +238,7 @@ bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 bindsym $mod2+c exec code
 bindsym $mod2+v exec evince
 bindsym $mod2+j exec --no-startup-id jupyter-lab
+bindsym $mod2+b exec blender
 #bindsym $mod2+5 exec vlc
 
 ##########################################
@@ -245,13 +246,13 @@ bindsym $mod2+j exec --no-startup-id jupyter-lab
 ##########################################
 
 # Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# We use variables to avoid repeating the names in multiple places.    
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3: "
 set $ws4 "4:"
 set $ws5 "5:.py"
-set $ws6 "6:" #   
+set $ws6 "6:" 
 set $ws7 "7:"
 set $ws8 "8"
 set $ws9 "9"
@@ -265,6 +266,7 @@ workspace $ws2 output DVI-D-1
 workspace $ws3 output DVI-D-1
 workspace $ws4 output HDMI-1
 #workspace $ws5 output HDMI-0
+workspace $ws6 output DVI-D-1
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
@@ -272,12 +274,13 @@ assign [class="(?i)firefox"] $ws2
 #assign [class="Thunar"] $ws3
 #assign [class="Thunderbird"] $ws4
 assign [class="mpv"] $ws4
-
+assign [class="Blender"] $ws6
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
+for_window [class=Blender] focus
 #for_window [class=Thunderbird] focus
 #for_window [class=TelegramDesktop] focus
 
@@ -288,7 +291,7 @@ for_window [class=Thunar] focus
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
- dex execute .desktop files
+# dex execute .desktop files
 # keep in mind that it can cause issues
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
 # in this cases better disable dex and use manual starting apps using xdg/autostart
