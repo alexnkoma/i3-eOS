@@ -239,6 +239,7 @@ bindsym $mod2+c exec code
 bindsym $mod2+v exec evince
 bindsym $mod2+j exec --no-startup-id jupyter-lab
 bindsym $mod2+b exec blender
+bindsym $mod2+p exec mypaint
 #bindsym $mod2+5 exec vlc
 
 ##########################################
@@ -246,14 +247,14 @@ bindsym $mod2+b exec blender
 ##########################################
 
 # Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.    
+# We use variables to avoid repeating the names in multiple places.         
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3: "
 set $ws4 "4:"
 set $ws5 "5:.py"
 set $ws6 "6:" 
-set $ws7 "7:"
+set $ws7 "7:"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -267,6 +268,7 @@ workspace $ws3 output DVI-D-1
 workspace $ws4 output HDMI-1
 #workspace $ws5 output HDMI-0
 workspace $ws6 output DVI-D-1
+workspace $ws7 output DVI-D-1
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Xfce4-terminal"] $ws1
@@ -275,12 +277,14 @@ assign [class="(?i)firefox"] $ws2
 #assign [class="Thunderbird"] $ws4
 assign [class="mpv"] $ws4
 assign [class="Blender"] $ws6
+assign [class="MyPaint"] $ws7
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
 for_window [class=Blender] focus
+for_window [class=MyPaint] focus
 #for_window [class=Thunderbird] focus
 #for_window [class=TelegramDesktop] focus
 
